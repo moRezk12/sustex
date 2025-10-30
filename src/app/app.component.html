@@ -1,0 +1,66 @@
+<div class="p-6 bg-gray-50 min-h-screen">
+  <div class="max-w-5xl mx-auto bg-white rounded-lg shadow p-6">
+    <h1 class="text-2xl font-bold mb-4">AI Presentation Generator</h1>
+
+    <!-- FORM -->
+    <div class="grid md:grid-cols-3 gap-4">
+      <label>
+        <div class="text-sm text-gray-600 mb-1">Grade:</div>
+        <select [(ngModel)]="gradeLevel" class="w-full border p-2 rounded">
+          <option *ngFor="let g of gradeOptions" [value]="g">{{ g }}</option>
+        </select>
+      </label>
+
+      <label>
+        <div class="text-sm text-gray-600 mb-1">Slides:</div>
+        <input type="number" [(ngModel)]="numberSlides" class="w-full border p-2 rounded" />
+      </label>
+
+      <label>
+        <div class="text-sm text-gray-600 mb-1">API Key (required for AI)</div>
+        <input type="password" [(ngModel)]="apiKey" placeholder="sk-..." class="w-full border p-2 rounded" />
+      </label>
+    </div>
+
+    <div class="mt-4">
+      <div class="text-sm text-gray-600 mb-1">Topic:</div>
+      <textarea [(ngModel)]="topic" rows="2" class="w-full border p-2 rounded"
+        placeholder="e.g. The process of mitosis"></textarea>
+    </div>
+
+    <div class="mt-4">
+      <div class="text-sm text-gray-600 mb-1">Additional Instructions:</div>
+      <textarea [(ngModel)]="additional" rows="2" class="w-full border p-2 rounded"
+        placeholder="e.g., Include diagrams or fun facts."></textarea>
+    </div>
+
+    <div class="mt-4 flex gap-3">
+      <button (click)="generateAI()" [disabled]="loading" class="px-4 py-2 bg-purple-600 text-white rounded">
+        {{ loading ? 'Generating...' : 'Generate AI Slides' }}
+      </button>
+      <button (click)="exportToPDF()" class="px-4 py-2 border rounded">Export PDF</button>
+    </div>
+
+    <!-- PREVIEW -->
+    <div class="mt-8" id="slides-preview">
+      <h2 class="text-xl font-semibold mb-4 border-b pb-2">Slides Preview</h2>
+
+      <div *ngIf="slides.length === 0" class="text-gray-500">No slides yet.</div>
+
+      <div *ngFor="let s of slides; index as i" class="pg-slide bg-white border rounded p-6 mb-6 shadow-sm page-break">
+        <div class="flex justify-between items-center">
+          <h3 class="text-lg font-bold">{{ s.title }}</h3>
+          <div class="text-sm text-gray-500">Slide {{ i + 1 }}</div>
+        </div>
+        <p class="mt-2 text-sm leading-relaxed">{{ s.paragraph }}</p>
+
+        <ul class="mt-3 list-decimal ml-5 space-y-1">
+          <li *ngFor="let q of s.questions" class="text-sm">{{ q }}</li>
+        </ul>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>

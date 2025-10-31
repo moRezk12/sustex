@@ -1,0 +1,1 @@
+import{Ea as t,Ta as o,Ua as a,ab as i}from"./chunk-N5JXT7U4.js";var c=class n{static \u0275fac=function(e){return new(e||n)};static \u0275cmp=t({type:n,selectors:[["app-guidance"]],decls:2,vars:0,template:function(e,s){e&1&&(o(0,"p"),i(1,"guidance works!"),a())},encapsulation:2})};export{c as GuidanceComponent};

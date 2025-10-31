@@ -13,9 +13,18 @@ import { LocalstorageService } from '../../Core/Services/localstorage.service';
 })
 export class NavbarComponent {
 
+  userName = "Mohamed Ahmed";
+  userEmail = "mohamed@example.com";
+
+  isDarkMode = false;
   langOpen = false;
   userOpen = false;
   notifOpen = false;
+
+  toggleDarkMode() {
+  this.isDarkMode = !this.isDarkMode;
+  document.documentElement.classList.toggle("dark", this.isDarkMode);
+}
 
   @Output() toggle = new EventEmitter<void>();
 

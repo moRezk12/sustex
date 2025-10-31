@@ -1,0 +1,1 @@
+import{Ea as n,Ta as o,Ua as m,ab as p}from"./chunk-N5JXT7U4.js";var i=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=n({type:t,selectors:[["app-improvement"]],decls:2,vars:0,template:function(e,s){e&1&&(o(0,"p"),p(1,"improvement works!"),m())},encapsulation:2})};export{i as ImprovementComponent};

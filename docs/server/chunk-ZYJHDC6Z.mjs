@@ -1,0 +1,2 @@
+import './polyfills.server.mjs';
+import{Ea as o,Va as t,Wa as i,cb as p}from"./chunk-FGHAUHU2.mjs";import"./chunk-X2SEQXRR.mjs";var r=class n{static \u0275fac=function(e){return new(e||n)};static \u0275cmp=o({type:n,selectors:[["app-pioneering"]],decls:2,vars:0,template:function(e,a){e&1&&(t(0,"p"),p(1,"pioneering works!"),i())},encapsulation:2})};export{r as PioneeringComponent};

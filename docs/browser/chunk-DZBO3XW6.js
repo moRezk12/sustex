@@ -1,0 +1,1 @@
+import{Ea as e,Ta as a,Ua as i,ab as o}from"./chunk-N5JXT7U4.js";var r=class t{static \u0275fac=function(n){return new(n||t)};static \u0275cmp=e({type:t,selectors:[["app-smart-training"]],decls:2,vars:0,template:function(n,s){n&1&&(a(0,"p"),o(1,"smart-training works!"),i())},encapsulation:2})};export{r as SmartTrainingComponent};

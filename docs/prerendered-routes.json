@@ -1,5 +1,13 @@
 {
   "routes": {
-    "/sustex": {}
+    "/sustex": {},
+    "/sustex/auttimated-chat": {},
+    "/sustex/golden": {},
+    "/sustex/guidance": {},
+    "/sustex/improvement": {},
+    "/sustex/live-chat": {},
+    "/sustex/pioneering": {},
+    "/sustex/smart-self": {},
+    "/sustex/smart-training": {}
   }
 }

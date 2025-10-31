@@ -1,0 +1,93 @@
+<section class="flex items-center justify-center">
+  <div class="w-full  rounded-lg ">
+
+    <!-- Title -->
+    <h2 class="text-3xl font-bold mb-5 text-gray-800 text-center">
+      Golden nomination service
+    </h2>
+
+    <!-- Form -->
+    <form [formGroup]="myForm" (ngSubmit)="generate()" class="space-y-6">
+
+      <!-- Model of Excellence (Select) -->
+      <div class="flex items-center gap-4">
+        <label class="w-64 text-gray-700 font-medium">Choose a model of excellence</label>
+        <select formControlName="modelOfExcellence" [ngClass]="{
+                  'border-green-500': myForm.get('modelOfExcellence')?.valid && myForm.get('modelOfExcellence')?.touched,
+                  'border-red-500': myForm.get('modelOfExcellence')?.invalid && myForm.get('modelOfExcellence')?.touched,
+                  'border-gray-300': !myForm.get('modelOfExcellence')?.touched
+                }" class="flex-1 border-2 rounded-lg px-3 py-3 outline-none">
+          <option value="">Select a model</option>
+          <option *ngFor="let model of models" [value]="model">{{ model }}</option>
+        </select>
+      </div>
+
+      <!-- Standard of Excellence (Select) -->
+      <div class="flex items-center gap-4">
+        <label class="w-64 text-gray-700 font-medium">Choose a standard of excellence</label>
+        <select formControlName="standardOfExcellence" [ngClass]="{
+                  'border-green-500': myForm.get('standardOfExcellence')?.valid && myForm.get('standardOfExcellence')?.touched,
+                  'border-red-500': myForm.get('standardOfExcellence')?.invalid && myForm.get('standardOfExcellence')?.touched,
+                  'border-gray-300': !myForm.get('standardOfExcellence')?.touched
+                }" class="flex-1 border-2 rounded-lg px-3 py-3 outline-none">
+          <option value="">Select a standard</option>
+          <option *ngFor="let standard of standards" [value]="standard">{{ standard }}</option>
+        </select>
+      </div>
+
+      <!-- Key Practices Description (Textarea + PDF Upload) -->
+      <div class="flex items-center gap-4 relative">
+        <label class=" w-64 text-gray-700 font-medium">Describe key practices and results</label>
+
+        <!-- Textarea -->
+         <div class="relative flex-1 " >
+           <textarea formControlName="keyPracticesDescription" [ngClass]="{
+                 'border-green-500': myForm.get('keyPracticesDescription')?.valid && myForm.get('keyPracticesDescription')?.touched,
+                 'border-red-500': myForm.get('keyPracticesDescription')?.invalid && myForm.get('keyPracticesDescription')?.touched,
+                 'border-gray-300': !myForm.get('keyPracticesDescription')?.touched
+               }" class="w-full border-2 rounded-lg px-3 py-3 outline-none resize-none" rows="4"
+             placeholder="Write a description">
+           </textarea>
+           <!-- PDF Upload Button -->
+           <label
+             class=" absolute right-[10px] bottom-[15px] mt-2 inline-block bg-blue-600 text-white font-medium px-4 py-2 rounded-[8px] cursor-pointer hover:bg-blue-700 transition duration-200 text-center">
+             تحميل ملفات PDF
+             <input type="file" accept=".pdf" (change)="onFileSelected($event)" class="hidden" />
+           </label>
+
+         </div>
+
+      </div>
+
+
+      <!-- Website -->
+      <div class="flex items-center gap-4">
+        <label class="w-64 text-gray-700 font-medium">Organization Website</label>
+        <input type="text" formControlName="website" [ngClass]="{
+                 'border-green-500': myForm.get('website')?.valid && myForm.get('website')?.touched,
+                 'border-red-500': myForm.get('website')?.invalid && myForm.get('website')?.touched,
+                 'border-gray-300': !myForm.get('website')?.touched
+               }" class="flex-1 border-2 rounded-lg px-3 py-3 outline-none" placeholder="Enter website URL" />
+      </div>
+
+      <!-- Social Media -->
+      <div class="flex items-center gap-4">
+        <label class="w-64 text-gray-700 font-medium">Social Media Accounts</label>
+        <input type="text" formControlName="socialMedia" [ngClass]="{
+                 'border-green-500': myForm.get('socialMedia')?.valid && myForm.get('socialMedia')?.touched,
+                 'border-red-500': myForm.get('socialMedia')?.invalid && myForm.get('socialMedia')?.touched,
+                 'border-gray-300': !myForm.get('socialMedia')?.touched
+               }" class="flex-1 border-2 rounded-lg px-3 py-3 outline-none" placeholder="Enter social media links" />
+      </div>
+
+      <!-- Generate Button -->
+      <div class="text-center">
+        <button type="submit"
+          class="bg-blue-600 cursor-pointer text-lg font-bold w-1/2 hover:bg-blue-700 text-white py-2 px-6 rounded transition duration-200">
+          Generate
+        </button>
+      </div>
+
+    </form>
+  </div>
+</section>

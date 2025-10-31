@@ -1,64 +1,65 @@
-<div
-  class="w-full flex items-center justify-between py-[10px] space-x-4 rtl:space-x-reverse">
+<div class="w-full flex px-[20px] items-center justify-between py-[10px] space-x-4 rtl:space-x-reverse">
 
   <!-- Title + Sidebar Button -->
-  <div>
-    <h1 class="text-[18px] md:text-[22px] font-bold text-gray-800 hidden md:block">
-      Welcome to Al Lulu Restaurant
-    </h1>
+  <!-- Logo + Sidebar Button -->
+  <div class="flex items-center gap-5">
 
+    <!-- Logo -->
+
+    <div class=" md:hidden block " >
+    <!-- Sidebar Toggle (Mobile Only) -->
     <i (click)="openSidebar()"
-      class="fas text-[22px]  md:text-[22px] font-bold text-primaryTitle md:hidden cursor-pointer transition-transform duration-300 ease-in-out"
-      [ngClass]="{
-      'fa-times rotate-90 scale-110 text-red-600': isSidebarOpen,
-      'fa-bars rotate-0 scale-100 text-primaryTitle': !isSidebarOpen
+      class="fas cursor-pointer text-[22px] text-primaryTitle transition-all duration-300 " [ngClass]="{
+      'fa-times rotate-90 text-red-500': isSidebarOpen,
+      'fa-bars': !isSidebarOpen
     }"></i>
+
+    </div>
+
+    <img src="assets/images/newlogo.png" class="h-10 w-10 object-contain" alt="logo">
 
   </div>
 
+
   <!-- Right Controls -->
-  <div class="flex flex-row-reverse md:flex-row items-center rtl:space-x-reverse space-x-2 ">
+  <div class="flex items-center gap-4">
 
-    <!-- 🌐 Language -->
+    <!-- Dark Mode -->
+    <i (click)="toggleDarkMode()" [ngClass]="{
+      'fas fa-sun text-yellow-500 text-xl cursor-pointer': isDarkMode,
+      'fas fa-moon text-gray-600 text-xl cursor-pointer': !isDarkMode
+    }"></i>
+
+    <!-- Language -->
     <div class="relative" (click)="toggleLanguageDropdown()" tabindex="0">
-      <button class="flex items-center gap-2 text-gray-600 bg-white border border-gray-200 rounded shadow px-1 hover:text-blue-600">
-        🌐
-        <span class="text-sm">{{ currentLang.toUpperCase() }}</span>
-      </button>
+      <i class="fas fa-globe text-gray-600 hover:text-blue-600 cursor-pointer text-xl"></i>
 
-      <div *ngIf="langOpen"
-        [ngClass]="{ 'left-0': currentLang === 'ar', 'right-0': currentLang !== 'ar' }"
-        class="absolute mt-2 w-32 bg-white border border-gray-200 rounded shadow z-50">
-
-        <button class="block w-full px-4 py-2 hover:bg-gray-100 text-blue-500 text-right"
-          (click)="changeLang('en')">English</button>
-
-        <button class="block w-full px-4 py-2 hover:bg-gray-100 text-blue-500 text-right"
-          (click)="changeLang('ar')">العربية</button>
-
+      <div *ngIf="langOpen" class="absolute right-0 mt-2 w-28 bg-white border border-gray-200 rounded shadow z-50">
+        <button class="block w-full px-3 py-2 hover:bg-gray-100 text-sm" (click)="changeLang('en')">English</button>
+        <button class="block w-full px-3 py-2 hover:bg-gray-100 text-sm" (click)="changeLang('ar')">العربية</button>
       </div>
     </div>
 
+    <!-- Help Icon -->
+    <i class="fas fa-question-circle text-gray-600 hover:text-blue-600 cursor-pointer text-xl"></i>
 
 
-    <!-- 👤 User -->
-    <div class="relative" (click)="toggleUserDropdown()" tabindex="0">
-      <button class="flex items-center gap-2 text-gray-600 hover:text-blue-600">
-        <img src="assets/images/navbar/download.png" alt="User"
-          class="w-8 h-8 rounded-full border border-gray-300 object-cover" />
-      </button>
+    <!-- User Box -->
+    <div class="relative md:border md:border-gray-500 rounded-[6px] px-[10px] py-[3px] flex items-center gap-2 cursor-pointer"
+    (click)="toggleUserDropdown()" tabindex="0">
 
+      <img src="assets/images/navbar/download.png" class="w-9 h-9 rounded-full border border-gray-300 object-cover"
+        alt="User">
+
+      <!-- Name (hidden on small screens) -->
+      <span class="text-gray-700 font-medium hidden md:block">{{ userName }}</span>
+
+      <!-- Dropdown -->
       <div *ngIf="userOpen"
-        [ngClass]="{ 'left-0': currentLang === 'ar', 'right-0': currentLang !== 'ar' }"
-        class="absolute mt-2 w-40 bg-white border border-gray-200 rounded shadow z-50">
-
-        <a routerLink="/settings"
-          class="block px-4 py-2 hover:bg-gray-100 text-blue-500 text-right">
-          الإعدادات
-        </a>
-
-        <button (click)="logout()"
-          class="block w-full px-4 py-2 text-right hover:bg-gray-100 text-blue-500">
+        class="absolute right-0 top-[36px] mt-3 w-[300px] bg-white border border-gray-200 rounded shadow z-50 p-3">
+        <p class="text-gray-800 font-semibold">{{ userName }}</p>
+        <p class="text-gray-500 text-sm mb-3">{{ userEmail }}</p>
+        <button (click)="logout()" class="w-full text-left px-2 py-2 hover:bg-gray-100 text-red-600">
           تسجيل الخروج
         </button>
       </div>

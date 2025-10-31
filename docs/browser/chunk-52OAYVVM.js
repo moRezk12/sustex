@@ -1,0 +1,1 @@
+import{Ea as n,Ta as o,Ua as a,ab as i}from"./chunk-N5JXT7U4.js";var p=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=n({type:t,selectors:[["app-live-chat"]],decls:2,vars:0,template:function(e,s){e&1&&(o(0,"p"),i(1,"live-chat works!"),a())},encapsulation:2})};export{p as LiveChatComponent};

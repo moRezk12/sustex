@@ -7,14 +7,17 @@ export default {
   routes: [
   {
     "renderMode": 2,
+    "preload": [
+      "chunk-UVZMT4SB.js"
+    ],
     "route": "/sustex"
   }
 ],
   entryPointToBrowserMapping: undefined,
   assets: {
-    'index.csr.html': {size: 3723, hash: '06b6f8bd8e153e98071c92b6449d2eb0bce8057d33bd167f3a68fe4d244d3ade', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
-    'index.server.html': {size: 1010, hash: 'ca3915237c021fa6fa5bf551b85fe41b1ec936a554312bf3e4e83cbe677fcddd', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
-    'index.html': {size: 7668, hash: '12177b724a261a95b26a30e2ec68ed6d73b5cc3235cb27e22d17f873b602cba2', text: () => import('./assets-chunks/index_html.mjs').then(m => m.default)},
-    'styles-CAHJKDRG.css': {size: 7374, hash: 'gfHnXDsWfTc', text: () => import('./assets-chunks/styles-CAHJKDRG_css.mjs').then(m => m.default)}
+    'index.csr.html': {size: 7721, hash: '7dd456bfaf61d1853ead322b611c0690112b9318dd15ddb0abbd3e6e40e6b89c', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
+    'index.server.html': {size: 1061, hash: '6750230a40d50505e48cb5ac51971c3f85d840c981e5e0bade8243ee34f126b0', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
+    'index.html': {size: 8455, hash: 'b15fe8c16251aabaa1cb5703946504f66782f3d134b0a75ac8d1703a3a66333a', text: () => import('./assets-chunks/index_html.mjs').then(m => m.default)},
+    'styles-ORANUATI.css': {size: 93223, hash: 'qvW/eugE/kk', text: () => import('./assets-chunks/styles-ORANUATI_css.mjs').then(m => m.default)}
   },
 };
